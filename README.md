@@ -26,4 +26,27 @@ After clicking on the Launch Instance button you will be redirected for selectin
 
 ![](images/2.png)
 
+After selecting the AMI it's time to choose the size of your virtual server by choosing the Instance Type. The smallest and cheapest virtual server will be enough so select the instance type t2.micro which is also free tier eligible and then click Next:Configure Instance Details.
+
+![](images/3.png)
+
+In the next step where you want to configure Instance Details, choose the VPC and the subnet in which you want to provision the instance(virtual server). Make sure you select public subnet and must also remember the availability zone of that subnet.
+Also under <b>Auto-assign Public IP </b> choose <b>Enable</b> so that a public IP is provided.
+You can also change other details for your virtual server but for now keep the defaults and click Next:Add Storage.
+
+![](images/4.png)
+
+In the next step, there will be option to add storage to your virtual server. Leave the root storage as default and click Next:Tag Instance.
+
+![](images/5.png)
+
+Another step is to provide tags to your virtual server. Tags help you to organize resources on AWS. A tag is nothing but a key-value pair. It is an optional step so skip it by clicking Next:Configure Security Group.
+
+![](images/6.png)
+
+The next step is to configure the security group i.e. a firewall that helps to secure your virtual server. There are two options in this step. Either you can create a new security group or select an existing security group. If you do not have a security group click on create a new security group and make a new one by adding rules just as shown in below screenshot.
+
+![](images/7.png)
+
+
 
