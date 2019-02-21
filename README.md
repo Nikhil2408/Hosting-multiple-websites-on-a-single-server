@@ -44,9 +44,21 @@ Another step is to provide tags to your virtual server. Tags help you to organiz
 
 ![](images/6.png)
 
-The next step is to configure the security group i.e. a firewall that helps to secure your virtual server. There are two options in this step. Either you can create a new security group or select an existing security group. If you do not have a security group click on create a new security group and make a new one by adding rules just as shown in below screenshot.
+The next step is to configure the security group i.e. a firewall that helps to secure your virtual server. There are two options in this step. Either you can create a new security group or select an existing security group. If you do not have a security group click on create a new security group and make a new one by adding rules just as shown in below screenshot. After configuring the security group, click Review and Launch.
 
 ![](images/7.png)
 
+In the next step, the wizard shows a review of all the configurations you have made to your new virtual server. If everything seems fine, click the Launch button.
+
+![](images/8.png)
+
+Last but not the least, the wizard asks for Select an existing key pair or create a new key pair. It depends on you. If you already have a key pair and it is with you then choose existing key pair, otherwise create a new key pair and download it.
+After downloading click Launch Instances.
+
+![](images/9.png)
+
+Your virtual server launches. Open an overview by clicking View Instances and wait until the server reaches to its running state and also make sure that it passes both status checks i.e. 2/2 checks.
+
+![](images/11.png)
 
 
