@@ -1,4 +1,4 @@
-# Hosting mulitple static websites on a single server
+# Hosting multiple static websites on a single server
 This repository acts as a guide to host multiple websites on a single server using AWS (Amazon Web Services).
 
 ![](images/aws%20logo.png)
@@ -60,5 +60,26 @@ After downloading click Launch Instances.
 Your virtual server launches. Open an overview by clicking View Instances and wait until the server reaches to its running state and also make sure that it passes both status checks i.e. 2/2 checks.
 
 ![](images/11.png)
+
+This ends the guide for launching a new virtual server in the cloud.
+
+Now, before doing SSH login to our newly created virtual server lets do some more configuration in the instance to allow it to host multiple websites.
+
+Follow the steps to configure the instance.
+<h2> 1. Allocating the elastic IP address and associating it to the instance </h2>
+
+You have already launched a virtual server above. The virtual server was connected to a public IP address automatically. But every time you stop and start the virtual server, the public IP address would change. If you want to host any website under a fixed IP address, this won't work. That's why AWS offers Elastic IP address for allocating fixed public IP address.
+You can allocate and associate a fixed public IP address to a virtual server with the following steps:
+
+<h5>Allocating the Elastic IP Address </h5> 
+
+a) Open the EC2 Management Console.
+
+b) Choose the Elastic IP from the submenu.
+
+c) Allocate a public IP address by clicking Allocate New Address.
+  
+  
+
 
 
