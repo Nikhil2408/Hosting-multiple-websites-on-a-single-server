@@ -18,5 +18,12 @@ First of all we will learn how to launch a virtual server on AWS on which we wil
 
 4. To start the wizard for launching a virtual server, start by clicking on Launch Instance button.
 
+This is how your EC2 Management looks like.
+
+![](images/1.png)
+
+After clicking on the Launch Instance button you will be redirected for selecting the operating system for your virtual machine. The first step is to choose a bundle of an OS and preinstalled software for your virtual server called an Amazon Machine Image(AMI). Here I will be working on Amazon Linux AMI 2018.03.0(HVM).
+
+![](images/2.png)
 
 
