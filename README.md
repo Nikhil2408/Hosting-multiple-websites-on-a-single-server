@@ -245,3 +245,16 @@ i) The last step is to activate the new web server configuration. To do so execu
 sudo service httpd restart
 ```
 ![](images/35.png)
+
+j) Change to the Elastic IP overview in the EC2 Management Console. Copy both the Elastic IP addressess and open them with your web browser. You will get the output of your html file you created or cloned in your directory depending on the public IP address you are calling.
+
+Result of first website from first public IP address
+
+![](images/36.png)
+
+Result of second website from second public IP address.
+
+![](images/37.png)
+
+In this way you can deliver two different websites from the same virtual server.
+
