@@ -79,11 +79,79 @@ b) Choose the Elastic IP from the submenu.
 
 c) Allocate a public IP address by clicking Allocate New Address.
 
+This is the Elastic IP address wizard. Click on Allocate New Address and then click Amazon Pool.You will see after choosing Amazon Pool, Elastic IP will be allocated. The whole process of allocating IP is shown in below screenshots.
+
+![](images/12.png)
+
+![](images/13.png)
+
+![](images/14.png)
+
+![](images/15.png)
 
 
 <h5> Associating the Elastic IP address to the instance </h5>
-  
-  
+
+a) Select the public IP address in the Elastic IP address wizard and choose Associate address from the Actions menu.
+
+![](images/16.png)
+
+b) Choose resource type as Instance and enter your virtual server's Instance ID in the Instance field.Now, choose the
+   private IP address of that instance. The private IP address of that instance is already there when you will click on
+   Private IP address field.
+   At last click Associate button to finish the process.
+
+![](images/17.png)
+
+You will notice that now the Elastic IP address you have allocated has been associated to the instance.
+
+![](images/18.png)
+
+Now, we will connect multiple public IP address with a virtual server by using multiple network interfaces. This will be useful for us to host multiple different websites on the same virtual server.
+
+<h2> 2. Adding an additional network interface to a virtual server and assigning it with a new public IP address </h2>
+
+It is possible to add multiple network interfaces to a virtual server and control the private and public IP address associated with those network interfaces. We will use an additional networking interface to connect a second public IP address to our virtual server. 
+
+Follow these steps to add an additional network interface to your virtual server.
+a) Select Network Interfaces from submenu of EC2 Management Console. It will show you two network interfaces if its your new account. One is default network interface and other one is the network interface of your virtual server. 
+
+![](images/19.png)
+
+b) Click Create Network Interface. A dialog box opens.
+
+c) Enter 2nd Interface as the description and choose your virtual server's subnet as the subnet for the new networking interface. You can look of your instance subnet in your server details by clicking Overview button.
+Leave the Private IP address empty and select the security group that you have created above, for example I have created projectSG so I will choose that security group.
+
+![](images/20.png)
+
+d) Click Yes, Create to create the new network interface with the configuration you have selected.
+
+e)When the new network interface's state changes to available, you are ready to attach it with your virtual server. Selec
+  the 2nd Interface and choose Attach under Actions menu.
+
+![](images/21.png)
+
+f) Choose the ID of your running virtual server and click Attach.
+
+![](images/22.png)
+
+g) The new network interface have now been attached to your virtual server.Next, we will connect an additional public IP address to the additional interface. To do so, note the new network interface ID and again allocate a new Elastic IP address as you did in step 1.
+
+![](images/23.png)
+
+h) Choose the new public IP address and choose Associate Address from the Actions menu. Now instead of selecting Instance in resource type, select Network Instance. Choose the network interface ID that you have noted and the private IP address and click Associate.
+
+![](images/24.png)
+
+You can see that the new public Elastic IP address has now been associated to the new network interface of the instance.
+
+![](images/25.png)
+
+<b> Great!!! </b> Our virtual server is now reachable under two different public IP address. This enables you to serve two different websites, depending on the public IP address.
+Now, we only need to configure our virtual server through SSH to answer request depending on the public IP address.
+
+
 
 
 
