@@ -71,13 +71,17 @@ Follow the steps to configure the instance.
 You have already launched a virtual server above. The virtual server was connected to a public IP address automatically. But every time you stop and start the virtual server, the public IP address would change. If you want to host any website under a fixed IP address, this won't work. That's why AWS offers Elastic IP address for allocating fixed public IP address.
 You can allocate and associate a fixed public IP address to a virtual server with the following steps:
 
-<h5>Allocating the Elastic IP Address </h5> 
+<h5> Allocating the Elastic IP Address </h5> 
 
 a) Open the EC2 Management Console.
 
 b) Choose the Elastic IP from the submenu.
 
 c) Allocate a public IP address by clicking Allocate New Address.
+
+
+
+<h5> Associating the Elastic IP address to the instance </h5>
   
   
 
