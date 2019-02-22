@@ -151,7 +151,97 @@ You can see that the new public Elastic IP address has now been associated to th
 <b> Great!!! </b> Our virtual server is now reachable under two different public IP address. This enables you to serve two different websites, depending on the public IP address.
 Now, we only need to configure our virtual server through SSH to answer request depending on the public IP address.
 
+Connect your virtual server through SSH login and host multiple websites on your instance.
+
+a) Remember the key you downloaded during your instance creation. Move to that directory where your key is present in your system. This step is done to change the permission of your downloaded key pair. When you are in that directory run:
+
+```javascript
+chmod 400 yourkeypairname
+```
+![](images/26.png)
+
+b) Now login to your instance using below command. The username for linux machine that we have created will be <b>ec2-user</b> but if you have created other machine refer [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html)
+
+During connecting it will ask you <b> Are you sure to continue connecting (yes/no)? </b>, write yes.
+
+```javascript
+ssh -i yourkeypairname username@PublicDNS
+```
+
+![](images/27.png)
+
+c) After SSH login first step is to install a default web server by executing
+```javascript
+sudo yum install httpd -y
+```
 
 
+To start the web server, execute the command
+```javascipt
+sudo service httpd start
+```
+![](images/28.png)
+
+d) Execute the below command to work as root user.
+```javascript
+sudo -s
+```
+![](images/29.png)
+
+e) Create a directory where you will host your first website. Execute the below command. In this command instead of first_website you can choose any name for your directory.
+
+```javascript
+mkdir /var/www/html/first_website
+```
+
+Now, store your first website which you want to host in that directory. Either you can get a sample of website or you can create your own website using vim editor and saving it in that directory. Here I am using just cloning a sample of website from Internet.
+
+```javascript
+wget -P /var/www/html/first_website https://raw.githubusercontent.com/AWSinAction/code/master/chapter3/a/index.html
+```
+![](images/30.png)
+
+f) Repeat the step (e) to make a second directory named second_website and also create a second sample website. Execute the below commands:
+
+To make a second directory:
+```javascript
+mkdir /var/www/html/second_website
+```
+![](images/31.png)
+
+To store a second sample website:
+```javascript
+wget -P /var/www/html/first_website https://raw.githubusercontent.com/AWSinAction/code/master/chapter3/b/index.html
+```
+![](images/32.png)
+
+g) Next,you need to configure the web server to deliver the websites depending on the called IP address. To do so,add a file
+named first_website.conf under <b> /etc/httpd/conf.d </b> with the following content.
+
+```javascript
+<VirtualHost 172.31.x.x:80>
+   DocumentRoot /var/www/html/first_website
+</VirtualHost>
+```
+Make sure to change the IP address from 172.31.x.x to the IP address from the ifconfig output for the networking interface eth0.
+
+![](images/33.png)
+
+h) Repeat the same process for the second configuration file named second_website.conf under <b> /etc/httpd/conf.d </b> with the following content.
 
 
+```javascript
+<VirtualHost 172.31.y.y:80>
+   DocumentRoot /var/www/html/second_website
+</VirtualHost>
+```
+Make sure to change the IP address from 172.31.y.y to the IP address from the ifconfig output for the networking interface eth1.
+
+![](images/34.png)
+
+i) The last step is to activate the new web server configuration. To do so execute
+
+```javascript
+sudo service httpd restart
+```
+![](images/35.png)
